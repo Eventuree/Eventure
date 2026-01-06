@@ -35,7 +35,7 @@
     align-items: center;
     margin: 6.25rem auto;
     gap:210px;
-    padding-left:4.875rem;
+    margin-top: 6.87rem;
 
 }
 
@@ -53,12 +53,17 @@
     margin: 0;
 }
 
+.popular-events-container{
+    padding: 4.8125rem;
+}
+
+
 @media (max-width: 768px) {
 
     /* Home-Page 1-st part */
     .create-account-container {
         display: flex;
-        padding:1.25rem ;       
+        /* padding:1.25rem ;        */
         justify-content: center;
         align-items:center ;
         gap: 1.25rem;
@@ -140,6 +145,20 @@
         width: 69%;      
         max-width: 13.75rem;
         border-radius: 2.5rem;
+    }
+
+    /* Popular events part */
+
+    .popular-events-container{
+        max-width: 15rem;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .popular-events-container h1{
+        max-width: 15rem;
+        font-size: 1.375rem;
+        
     }
 }
         /* Home-Page 2-nd part */
