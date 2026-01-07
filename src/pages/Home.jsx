@@ -1,10 +1,14 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import "./Home.css"
+import EventCard from "../components/EventCard"
+import EventCarousel from "../components/EventCarousel/EventCarousel"
 
 export default function Home(){
-    return (
-        <div className="create-account-container">
+    return ( <>
+    <main className="home-page-wrapper">
+    <section>
+     <div className="create-account-container">
             <div className="create-account-text">
                 <h1>Ваші інтереси <br />
                     Ваша компанія
@@ -16,5 +20,15 @@ export default function Home(){
                 <img src="https://placehold.co/585x540" />
             </div>
         </div>
+    </section>
+    <section>
+        <div className="popular-events-container">
+            <h1>Популярні івенти</h1>
+            <EventCarousel />
+            {/* <EventCard/> */}
+        </div>
+        </section>
+    </main>
+    </>
     )
 }
