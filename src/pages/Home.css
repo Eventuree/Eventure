@@ -71,7 +71,10 @@
     flex-wrap: wrap;
     gap: 1.25em;;
 }
-
+ .popular-events-container h1, .event-categories-section h1{
+        font-weight: 500;
+       
+    }
 @media (max-width: 768px) {
 
     /* Home-Page 1-st part */
@@ -114,6 +117,17 @@
         max-width: 13.9375rem;  
         font-size: 1.125rem;        
     }
+
+    .popular-events-container{
+        margin: 0 auto;
+    }
+    .popular-events-container h1, .event-categories-section h1{
+        font-size: 1.75rem;
+        font-weight: 500;
+        margin: 0 ;
+        margin-bottom: 1.25rem;
+    }
+
    
 }
 

@@ -18,6 +18,12 @@
     width: 1.875rem;
 }
 
+@media(max-width:768px){
+    .event-category{
+        padding: 0.38rem 1.13rem;
+    }
+}
+
 @media(max-width:480px){
     .event-category{
         padding:0.3125rem 0.9275rem;
