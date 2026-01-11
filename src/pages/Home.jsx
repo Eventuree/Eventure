@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import "./Home.css"
 import EventCarousel from "../components/EventCarousel/EventCarousel"
 import EventCategory from "../components/EventCategory/EventCategory"
-import { getHomeData } from "../../api"
+import { getHomeData } from "../server/api"
 
 export default function Home(){
     const { isAuthenticated } = useAuth();
@@ -72,7 +72,6 @@ export default function Home(){
                     {eventCategories}
                 </div>
             </div>
-          </div>
         </section>
       </main>
     </>

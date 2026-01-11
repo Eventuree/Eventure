@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import "./EventCard.css"
-import formatDate from "../../../utils"
+import formatDate from "../../utils/utils"
 
 export default function EventCard(event){
 
