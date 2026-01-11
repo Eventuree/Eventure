@@ -1,17 +1,41 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Home.css";
-import EventCarousel from "../components/EventCarousel/EventCarousel";
-import EventCategory from "../components/EventCategory/EventCategory";
+import React, {useState, useEffect} from "react"
+import {Link} from "react-router-dom"
 import { useAuth } from "../context/AuthContext";
+import "./Home.css"
+import EventCarousel from "../components/EventCarousel/EventCarousel"
+import EventCategory from "../components/EventCategory/EventCategory"
+import { getHomeData } from "../../api"
 
-export default function Home() {
-  const { isAuthenticated } = useAuth();
-  return (
-    <>
-      <main className="home-page-wrapper">
-        <section>
-          <div className="create-account-container">
+export default function Home(){
+    const { isAuthenticated } = useAuth();
+    const [homeData,setHomeData] = useState(null)
+    const [error, setError] = useState(null)
+
+     useEffect(()=>{
+        async function loadData() {
+            try {
+                const result = await getHomeData();
+                console.log(result)
+                setHomeData(result);
+            } catch (err) {
+                console.log("can't frtch")
+                setError(err.message);
+            }
+        }
+        loadData();
+        
+     }, [])
+
+     if (!homeData) return <div>Завантаження...</div>;
+
+     const eventCategories = homeData.categories.map(category => (
+            <EventCategory key={category.id} name={category.name}  iconName={category.iconName}/>
+     ));
+
+    return ( <>
+    <main className="home-page-wrapper">
+    <section>
+     <div className="create-account-container">
             <div className="create-account-text">
               <h1>
                 Ваші інтереси <br />
@@ -38,19 +62,15 @@ export default function Home() {
         <section>
           <div className="popular-events-container">
             <h1>Популярні івенти</h1>
-            <EventCarousel />
-          </div>
+            <EventCarousel events={homeData.trendingEvents}/>
+        </div>
         </section>
         <section>
-          <div className="event-categories-section">
-            <h1>Категорії</h1>
-            <div className="event-categories-container">
-              <EventCategory name="Спорт та активний відпочинок" />
-              <EventCategory name="Ігри та хобі" />
-              <EventCategory name="Соціальні та міські заходи" />
-              <EventCategory name="Подорожі та поїздки" />
-              <EventCategory name="Волонтерство" />
-              <EventCategory name="Освіта та розвиток" />
+            <div className="event-categories-section">
+                <h1>Категорії</h1>
+                <div className="event-categories-container">
+                    {eventCategories}
+                </div>
             </div>
           </div>
         </section>
