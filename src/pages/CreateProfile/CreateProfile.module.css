@@ -1,0 +1,259 @@
+.fieldset {
+    border: none;
+}
+.formContainer {
+    border: 1px solid #040404;
+    border-radius: 20px;
+    max-width: 942px;
+    margin:110px auto;
+    box-sizing: border-box;
+    padding: 40px 144px;
+}
+.title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin:0;
+    margin-bottom: 40px;
+    width: 434px;
+}
+.labelText, .photoPlaceholderSpan {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.selectField{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("src/assets/icons/down-arrow.png");
+  background-repeat: no-repeat;
+  background-size: 26px;
+  background-position: calc(100% - 30px) center;
+  cursor: pointer;
+}
+.selectOption, .citySelect:valid, .genderSelect:valid{
+    color:black;
+    font-family: 'Stolzl',sans-serif;
+}
+.photoSelectors{
+    padding: 0;
+}
+.photoPlaceholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:1.81rem;
+    background-color: #C3C3C3;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.userIcon{
+    width:5.625rem;
+}
+.userPic{
+    width: 100%;
+    object-fit: cover;
+
+}
+.photoSelectorsContainer {
+    display: flex;
+    gap:1.25rem;
+    margin-bottom: 40px;
+}
+.photoSelectorsContainerSelect {
+    font-size: 1.375rem;
+    color: #C3C3C3;
+    padding: 1rem 104px 1rem 2.18rem;
+    border: 1px solid black;
+    border-radius: 60px;
+    gap:10px;
+}
+.selectorsContainer{
+    display: flex;
+    flex-direction: column;
+    gap:1.25rem;
+}
+.citySelector, .genderSelector{
+    display: flex;
+    flex-direction: column;
+    gap:0.625rem;
+}
+.citySelect, .genderSelect{
+    font-size: 20px;
+    color: #C3C3C3;
+    padding: 15px 30px;
+    border: 1px solid black;
+    border-radius: 60px;
+    width:310px;
+}
+.selectOption {
+    color: #000000;
+    background-color: white;
+}
+.aboutLinksContainer, .aboutMe, .socials{
+    display: flex;
+    flex-direction: column;
+}
+.aboutLinksContainer{
+    gap: 1.25rem;
+}
+.aboutMe, .socials{
+    gap: 0.625rem;
+}
+.aboutMeField {
+    font-size: 1.375rem;
+    font-family: 'Stolzl', sans-serif;
+    color: #313131; 
+    border: 1px solid black;
+    border-radius: 60px; 
+    padding: 15px 35px; 
+    resize: none;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+}
+.socialsInput{
+    font-size: 1.375rem;
+    font-family: 'Stolzl', sans-serif;
+     padding: 15px 35px; 
+     border-radius: 60px;
+     border: 1px solid black;
+}
+.addMoreButton{
+    font-size: 1.375rem;
+    font-family: 'Stolzl', sans-serif;
+    box-sizing: border-box;
+    width: 300px;
+    padding-left: 50px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.interestsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    font-weight: 400;
+    padding: 0;
+}
+.eventCategory{
+    font-weight: 400;
+    background-color: transparent;
+}
+.interestItem{
+    cursor: pointer
+}
+.checked {
+    color: #ED7C30;
+    border-color: #ED7C30;
+}
+.buttonLink{
+    width: fit-content;
+    font-size: 1.5rem;
+    font-family:"Stolzl",sans-serif;
+    font-weight: 500;
+    padding: 0.625em 1.729em;
+    background-color:#ED7C30 ;
+    border: 2px solid #040404;
+    border-radius: 60px;
+    color: #040404;
+    text-align: center;
+    margin-top:40px;
+}
+
+@media(max-width:480px){
+    .title {
+        font-size: 1.375rem;
+        width: 15rem;
+        margin-bottom: 1.25rem;
+    }
+    .formContainer {
+        border: none;
+        max-width: 15rem;
+        align-self: center;
+        padding: 0;
+        margin: 60px auto;
+        align-items: flex-start;
+    }
+    .photoPlaceholder {
+        width: 6.875rem;
+        height: 6.875rem;
+        gap:5px;
+    }
+   
+    .labelText {
+        font-size: 0.875rem;
+    }
+    .photoSelectorsContainerSelect{
+        font-size: 0.875rem;
+        font-weight: 500;
+        width: 110px;
+        padding: 10px 15px;
+        background-size: 20px;
+        background-position: calc(100% - 15px) center;
+    }
+    .photoSelectorsContainer{
+        gap:20px
+    }
+     .photoPlaceholderSpan{
+        font-size:0.875rem;
+        width: 6.25rem;
+        text-align: center;
+    }
+    .selectorsContainer{
+        gap:10px;
+    }
+    .citySelector, .genderSelector{
+        gap:5px;
+    }
+    .citySelect, .genderSelect{
+        padding: 10px 16px;
+        max-width: 110px;
+        font-size: 14px;
+        font-family: "Stolzl",sans-serif;
+        font-weight: 500;
+    }
+    .selectField{
+        background-size: 15px;
+         background-position: calc(100% - 8px) center;
+    }
+    .aboutLinksContainer{
+        padding: 0;
+    }
+    .aboutMeField, .socials {
+        max-width: 15rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    .aboutMeField{
+        padding: 10px 15px;
+    }
+    .addMoreButton{
+        font-size:0.875rem ;
+        padding-left: 10px;
+        max-width: 160px;
+    }
+    .socialsInput {
+        font-size: 14px;
+        padding: 10px 15px;
+        font-weight: 500;
+    }
+    .buttonLink{
+        width: 15rem;
+        align-self: center;
+        font-size: 14px;
+        margin-top:20px;
+    }
+    .selectInterestsSection{
+        padding: 0;
+        margin-top: 20px;
+    }
+    .selectCategories{
+        padding: 0;
+    }
+    .userIcon{
+        width: 2.5rem;
+    }
+}
