@@ -5,17 +5,25 @@ import { useCategories } from '../../context/CategoryContext';
 import { useRegistration } from "../../context/RegistrationContext";
 import InterestCheckbox from "../../components/InterestCheckbox/InterestCheckbox";
 
+const MAXAGE = 100
+const MINAGE = 16
+
+const MINCITY = 5
+const MAXCITY = 27
+
 export default function CreateProfile(){
     const {registrationData} = useRegistration()
-    console.log("Дані користувача з контексту:", registrationData);
     const navigate = useNavigate()
-    const {categories, loading} = useCategories();
+    const {categories} = useCategories();
+
      const [profileData, setProfileData] = useState({
         location: '',
         gender: '',
         age: '',
         bio: '',
     })
+
+    const [error, setError] = useState(null)
     const [previewPic, setPreviewPic] = useState(null)
     const [selectedFile, setSelectedFile] = useState(null)
 
@@ -36,7 +44,6 @@ export default function CreateProfile(){
         }
     }
     const handleAddLink = (e) => {
-        
         if (currentLink.trim() !== '') {
             const updatedLinks = [...socialLinks, currentLink]
             setSocialLinks(updatedLinks)
@@ -57,12 +64,17 @@ export default function CreateProfile(){
     );
 };
 
+
 const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (selectedInterests.length === 0) {
-        alert("Будь ласка, оберіть хоча б один інтерес!"); 
+        setError("Будь ласка, оберіть хоча б один інтерес!"); 
         return; 
+    }
+
+    if(!profileData.age || !profileData.location || !profileData.gender || !profileData.socials){
+        setError("Будь ласка, заповніть всі обов'язкові поля!")
     }
     const formData = new FormData()
     if (selectedFile) {
@@ -91,7 +103,6 @@ const handleSubmit = async (e) => {
         })
         if (response.ok) {
             const result = await response.json();
-            console.log("Сервер повернув:", result);
             navigate("/profile")
         }
     } catch(err){
@@ -119,8 +130,8 @@ const handleSubmit = async (e) => {
                 
                 <div className={styles.selectorsContainer}>
                     <div className={styles.citySelector}>
-                    <label htmlFor="city" className={styles.labelText}>Місто*</label>
-                    <input type="text" id="city" name="location" value={profileData.location} placeholder="Місто" required className={styles.input} onChange={handleChange}/>
+                    <label htmlFor="city" className={styles.labelText} >Місто*</label>
+                    <input type="text" id="city" name="location" value={profileData.location} placeholder="Місто" required className={styles.input} onChange={handleChange} maxlenght={MAXCITY} />
                     </div>
                     <div className={styles.genderSelector}>
                     <label htmlFor="gender" className={styles.labelText}>Стать*</label>
@@ -133,7 +144,7 @@ const handleSubmit = async (e) => {
                     </div>
                     <div className={styles.ageInput}>
                         <label htmlFor="age" className={styles.labelText} required >Вік*</label>
-                        <input type="number" id="age" name="age" value={profileData.age} placeholder="Ваш вік" className={styles.input} onChange={handleChange}/>
+                        <input type="number" id="age" name="age" value={profileData.age} min={MINAGE} max={MAXAGE} placeholder="Ваш вік" className={styles.input} onChange={handleChange}/>
                     </div>
                     </div>
                 </div>
@@ -141,7 +152,18 @@ const handleSubmit = async (e) => {
             <fieldset className={`${styles.aboutLinksContainer} ${styles.fieldset}`}>
                 <div className={styles.aboutMe}>
                 <label htmlFor="about-me" className={styles.labelText}>Про себе</label>
-                <textarea id="about-me" placeholder="Про себе" name="bio" value={profileData.bio} onChange={handleChange} className={styles.aboutMeField} maxlenght={500}></textarea> 
+                <textarea id="about-me" placeholder="Про себе" name="bio" value={profileData.bio} 
+                onChange={(e) => {
+                 handleChange(e);
+                e.target.style.height = "auto";
+                e.target.style.height = `${e.target.scrollHeight}px`;
+                }} 
+                className={styles.aboutMeField} 
+                maxlenght={500}>
+                    </textarea> 
+                <span className={styles.helper}>
+                    {profileData.bio.length}/500
+                </span>
                 </div>
                 <div className={styles.socials}>
                 <label htmlFor="socials" className={styles.labelText}>Соціальні мережі*</label>
@@ -178,6 +200,7 @@ const handleSubmit = async (e) => {
                         ))}
                 </div>
             </fieldset>
+            {error && <p className={styles.error}>{error}</p>}
             <button type="submit" className={styles.buttonLink}>Створити профіль</button>
         </form>
        </section>
