@@ -23,7 +23,7 @@ export default function Profile(){
     useEffect(()=>{
         const fetchProfile = async() => {
             try {
-                const response = await fetch(`http://localhost:8082/api/v1/profiles/${user.id}`)
+                const response = await fetch(`http://localhost:8080/api/v1/profiles/${user.id}`)
                 if (response.ok){
                     const data = await response.json()
                     setProfile(data)
@@ -60,7 +60,7 @@ export default function Profile(){
 
     const handleDelete = async() =>{
         try{   
-            const res = await fetch(`http://localhost:8082/api/v1/profiles/${user.id}`, {
+            const res = await fetch(`http://localhost:8080/api/v1/profiles/${user.id}`, {
                 method:"DELETE"
             })
             if (res.ok){

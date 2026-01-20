@@ -99,10 +99,10 @@ export default function CreateProfile(){
       formData.append("file", selectedFile);
     }
 
-    const socialNetworksMap = {};
-    socialLinks.forEach((link, index) => {
-      socialNetworksMap[`link_${index}`] = link;
-    });
+    // const socialNetworksMap = {};
+    // socialLinks.forEach((link, index) => {
+    //   socialNetworksMap[`link_${index}`] = link;
+    // });
 
     const dataForServer = {
       userId: user.id,
@@ -116,7 +116,7 @@ export default function CreateProfile(){
       age: parseInt(profileData.age),
       interests: selectedInterests,
 
-      socialNetworks: socialNetworksMap,
+      socials: socialLinks,
     };
 
     formData.append(
@@ -128,7 +128,7 @@ export default function CreateProfile(){
 
     try {
       const token = sessionStorage.getItem("access_token");
-      const response = await fetch("http://localhost:8082/api/v1/profiles", {
+      const response = await fetch("http://localhost:8080/api/v1/profiles", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

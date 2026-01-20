@@ -71,7 +71,7 @@ const EditProfile = () => {
     };
 
     try {
-        const response = await fetch(`http://localhost:8082/api/v1/profiles/${id}`, {
+        const response = await fetch(`http://localhost:8080/api/v1/profiles/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json' 

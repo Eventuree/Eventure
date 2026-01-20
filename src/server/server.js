@@ -3,7 +3,7 @@ import { createServer } from "miragejs"
 export function makeServer() {
   return createServer({
     routes() {
-      this.urlPrefix = "http://localhost:8082" 
+      this.urlPrefix = "http://localhost:8080" 
       this.namespace = "api/v1"
 
 this.get("/home", () => {
