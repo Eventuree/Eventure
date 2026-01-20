@@ -14,6 +14,7 @@ const Login = () => {
   const [emailError, setEmailError] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [attempts, setAttempts] = useState(0);
 
   const handleGoogleClick = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -68,6 +69,7 @@ const Login = () => {
       navigate("/");
     } catch (err) {
       setError("Неправильна електронна пошта або пароль");
+      setAttempts((prev) => prev + 1);
     } finally {
       setIsSubmitting(false);
     }
@@ -112,6 +114,14 @@ const Login = () => {
             />
           </label>
           {error && <p className={styles.error}>{error}</p>}
+          {attempts >= 3 && (
+            <p className={styles.reset}>
+              Забули пароль?{" "}
+              <span onClick={() => navigate("/reset-password")}>
+                Відновити доступ
+              </span>
+            </p>
+          )}
 
           <div className={styles.actions}>
             <button
@@ -121,7 +131,13 @@ const Login = () => {
             >
               {isSubmitting ? "Вхід..." : "Увійти"}
             </button>
-            {/* Додаткові кнопки відновлення паролю тут */}
+            <button
+              type="button"
+              className={styles.linkBtn}
+              onClick={() => navigate("/reset-password")}
+            >
+              Забули пароль?
+            </button>
           </div>
         </form>
 

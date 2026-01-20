@@ -66,7 +66,7 @@ const Register = () => {
       form.password.length < PASSWORD_MIN_LENGTH ||
       form.password.length > PASSWORD_MAX_LENGTH
     ) {
-      setPasswordError("Invalid length");
+      setPasswordError("Пароль має містити від 8 до 128 символів");
       return;
     }
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$/;
