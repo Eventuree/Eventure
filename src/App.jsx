@@ -13,6 +13,7 @@ import CreateEvent from "./pages/CreateEvent/CreateEvent.jsx";
 import PrivateRoute from "./routes/PrivateRoute";
 import Profile from "./pages/Profile/Profile.jsx";
 import EditProfile from "./pages/EditProfile/EditProfile.jsx";
+import EventSearch from "./pages/EventSearch/EventSearch.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage/ForgotPasswordPage.jsx";
 import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage.jsx";
 
@@ -69,6 +70,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <CreateEvent />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/search-events"
+              element={
+                <PrivateRoute>
+                  <EventSearch />
                 </PrivateRoute>
               }
             />
