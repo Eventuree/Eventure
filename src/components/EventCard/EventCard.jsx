@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 import "./EventCard.css";
 import formatDate from "../../utils/utils";
 
-export default function EventCard({ id, imageUrl, title, date, location }) {
+export default function EventCard({
+  id,
+  bannerPhotoUrl,
+  title,
+  date,
+  location,
+}) {
   return (
     <div className="event-card-container">
       <div className="event-card-image">
-        <img src={imageUrl} alt={title} />
+        <img src={bannerPhotoUrl} alt={title} />
       </div>
       <div className="event-card-text-link-container">
         <div className="event-card-text">
