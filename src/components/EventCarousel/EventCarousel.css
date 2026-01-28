@@ -4,6 +4,15 @@
     align-items: center;
      
 }
+.event-swiper {
+    position: relative;
+    padding-bottom: 2rem; 
+}
+
+.swiper-nav-buttons {
+    z-index: 10;
+    position: relative;
+}
 .swiper-nav-buttons button{
     background: none;
     border: none;
