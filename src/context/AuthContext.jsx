@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     // --- MOCK START: Обробка тестового токена (щоб jwtDecode не ламався) ---
     if (authResponse.accessToken === "mock_access_token") {
       userData = {
-        id: 999,
+        id: 1,
         email: "test@test.com",
         role: "USER",
         name: "Test",
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       //   // --- MOCK END ---
 
-      const userData = {
+      userData = {
         id: authResponse.userId,
         email: authResponse.email,
         role: authResponse.role,

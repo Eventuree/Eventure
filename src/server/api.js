@@ -9,69 +9,72 @@ const MOCK_CATEGORIES = [
 
 const MOCK_HOME_DATA = {
   trendingEvents: [
-    { 
-        id: 1, 
-        title: "Code & Coffee", 
-        eventDate: "2026-06-10T09:00:00.000Z", 
-        location: "Львів",
-        bannerPhotoUrl: "https://placehold.co/400x250/orange/white?text=Code+Coffee"
-      },
-      { 
-        id: 2, 
-        title: "Вечір Настілок", 
-        eventDate: "2026-06-15T18:30:00.000Z", 
-        location: "Івано-Франківськ",
-        bannerPhotoUrl: "https://placehold.co/400x250/purple/white?text=Board+Games"
-      },
-      { 
-        id: 3, 
-        title: "Забіг", 
-        eventDate: "2026-07-04T21:00:00.000Z", 
-        location: "Дніпро",
-        bannerPhotoUrl: "https://placehold.co/400x250/blue/white?text=Night+Run"
-      },
-      { 
-        id: 4, 
-        title: "Стріт-Арт Тур", 
-        eventDate: "2026-07-22T11:00:00.000Z", 
-        location: "Харків",
-        bannerPhotoUrl: "https://placehold.co/400x250/green/white?text=Art+Tour"
-      },
-      { 
-        id: 5, 
-        title: "Pitch Day", 
-        eventDate: "2026-08-12T14:00:00.000Z", 
-        location: "Київ",
-        bannerPhotoUrl: "https://placehold.co/400x250/red/white?text=Pitch+Day"
-      },
-      { 
-        id: 6, 
-        title: "Йога в парку", 
-        eventDate: "2026-09-01T08:00:00.000Z", 
-        location: "Чернігів",
-        bannerPhotoUrl: "https://placehold.co/400x250/teal/white?text=Yoga"
-      },
-      { 
-        id: 7, 
-        title: "Кіно просто неба", 
-        eventDate: "2026-09-15T20:00:00.000Z", 
-        location: "Малин",
-        bannerPhotoUrl: "https://placehold.co/400x250/black/white?text=Open+Air+Cinema"
-      },
-      { 
-        id: 8, 
-        title: "Книжковий клуб", 
-        eventDate: "2026-10-05T18:00:00.000Z", 
-        location: "Донецьк",
-        bannerPhotoUrl: "https://placehold.co/400x250/brown/white?text=Book+Club"
-      },
-      { 
-        id: 9, 
-        title: "New Year Party", 
-        eventDate: "2026-12-31T22:00:00.000Z", 
-        location: "Чернівці",
-        bannerPhotoUrl: "https://placehold.co/400x250/gold/white?text=NY+Party"
-      },
+    {
+      id: 1,
+      title: "Code & Coffee",
+      eventDate: "2026-06-10T09:00:00.000Z",
+      location: "Львів",
+      bannerPhotoUrl:
+        "https://placehold.co/400x250/orange/white?text=Code+Coffee",
+    },
+    {
+      id: 2,
+      title: "Вечір Настілок",
+      eventDate: "2026-06-15T18:30:00.000Z",
+      location: "Івано-Франківськ",
+      bannerPhotoUrl:
+        "https://placehold.co/400x250/purple/white?text=Board+Games",
+    },
+    {
+      id: 3,
+      title: "Забіг",
+      eventDate: "2026-07-04T21:00:00.000Z",
+      location: "Дніпро",
+      bannerPhotoUrl: "https://placehold.co/400x250/blue/white?text=Night+Run",
+    },
+    {
+      id: 4,
+      title: "Стріт-Арт Тур",
+      eventDate: "2026-07-22T11:00:00.000Z",
+      location: "Харків",
+      bannerPhotoUrl: "https://placehold.co/400x250/green/white?text=Art+Tour",
+    },
+    {
+      id: 5,
+      title: "Pitch Day",
+      eventDate: "2026-08-12T14:00:00.000Z",
+      location: "Київ",
+      bannerPhotoUrl: "https://placehold.co/400x250/red/white?text=Pitch+Day",
+    },
+    {
+      id: 6,
+      title: "Йога в парку",
+      eventDate: "2026-09-01T08:00:00.000Z",
+      location: "Чернігів",
+      bannerPhotoUrl: "https://placehold.co/400x250/teal/white?text=Yoga",
+    },
+    {
+      id: 7,
+      title: "Кіно просто неба",
+      eventDate: "2026-09-15T20:00:00.000Z",
+      location: "Малин",
+      bannerPhotoUrl:
+        "https://placehold.co/400x250/black/white?text=Open+Air+Cinema",
+    },
+    {
+      id: 8,
+      title: "Книжковий клуб",
+      eventDate: "2026-10-05T18:00:00.000Z",
+      location: "Донецьк",
+      bannerPhotoUrl: "https://placehold.co/400x250/brown/white?text=Book+Club",
+    },
+    {
+      id: 9,
+      title: "New Year Party",
+      eventDate: "2026-12-31T22:00:00.000Z",
+      location: "Чернівці",
+      bannerPhotoUrl: "https://placehold.co/400x250/gold/white?text=NY+Party",
+    },
   ],
   categories: MOCK_CATEGORIES,
   allEvents: [],
@@ -85,22 +88,131 @@ const MOCK_EVENTS_DB = [
     eventDate: "2026-05-04T18:00:00",
     location: "Київ",
     maxParticipants: 30,
-    minAge: 18,
-    requiredGender: "Всі",
+    bannerPhotoUrl: "https://placehold.co/600x400/purple/white?text=D&D", // Додав imageUrl для картки
     organizerId: 1,
     categoryId: 2,
   },
   {
     id: 2,
     title: "Ранкова Йога в парку",
-    description: "Беріть килимки та гарний настрій!",
+    description: "Беріть килимки...",
     eventDate: "2026-06-10T07:00:00",
     location: "Львів",
-    maxParticipants: 15,
-    minAge: 16,
-    requiredGender: "Всі",
-    bannerPhotoUrl: "https://placehold.co/600x400/orange/white?text=Yoga+Time",
+    bannerPhotoUrl: "https://placehold.co/600x400/orange/white?text=Yoga",
     organizerId: 2,
+    categoryId: 1,
+  },
+
+  {
+    id: 3,
+    title: "Майстер-клас з кераміки",
+    eventDate: "2026-07-15T14:00:00",
+    location: "Київ",
+    bannerPhotoUrl: "https://placehold.co/600x400/brown/white?text=Ceramics",
+    organizerId: 1,
+    categoryId: 2,
+  },
+  {
+    id: 4,
+    title: "IT Conference 2026 Code & Coffee",
+    eventDate: "2026-08-20T10:00:00",
+    location: "Київ, Online",
+    bannerPhotoUrl: "https://placehold.co/600x400/blue/white?text=IT+Conf",
+    organizerId: 1,
+    categoryId: 6,
+  },
+  {
+    id: 5,
+    title: "Благодійний забіг",
+    eventDate: "2026-09-01T09:00:00",
+    location: "Одеса",
+    bannerPhotoUrl: "https://placehold.co/600x400/green/white?text=Run",
+    organizerId: 1,
+    categoryId: 1,
+  },
+
+  {
+    id: 6,
+    title: "Code & Coffee",
+    eventDate: "2026-06-10T09:00:00.000Z",
+    location: "Львів",
+    bannerPhotoUrl:
+      "https://placehold.co/400x250/orange/white?text=Code+Coffee",
+    organizerId: 1,
+    categoryId: 1,
+  },
+  {
+    id: 7,
+    title: "Вечір Настілок",
+    eventDate: "2026-06-15T18:30:00.000Z",
+    location: "Івано-Франківськ",
+    bannerPhotoUrl:
+      "https://placehold.co/400x250/purple/white?text=Board+Games",
+    organizerId: 1,
+    categoryId: 1,
+  },
+  {
+    id: 8,
+    title: "Забіг",
+    eventDate: "2026-07-04T21:00:00.000Z",
+    location: "Дніпро",
+    bannerPhotoUrl: "https://placehold.co/400x250/blue/white?text=Night+Run",
+    organizerId: 1,
+    categoryId: 1,
+  },
+  {
+    id: 9,
+    title: "Стріт-Арт Тур",
+    eventDate: "2026-07-22T11:00:00.000Z",
+    location: "Харків",
+    bannerPhotoUrl: "https://placehold.co/400x250/green/white?text=Art+Tour",
+    organizerId: 1,
+    categoryId: 1,
+  },
+  {
+    id: 10,
+    title: "Pitch Day",
+    eventDate: "2026-08-12T14:00:00.000Z",
+    location: "Київ",
+    bannerPhotoUrl: "https://placehold.co/400x250/red/white?text=Pitch+Day",
+    organizerId: 1,
+    categoryId: 1,
+  },
+  {
+    id: 11,
+    title: "Йога в парку",
+    eventDate: "2026-09-01T08:00:00.000Z",
+    location: "Чернігів",
+    bannerPhotoUrl: "https://placehold.co/400x250/teal/white?text=Yoga",
+    organizerId: 1,
+    categoryId: 1,
+  },
+  {
+    id: 12,
+    title: "Кіно просто неба",
+    eventDate: "2026-09-15T20:00:00.000Z",
+    location: "Малин",
+    bannerPhotoUrl:
+      "https://placehold.co/400x250/black/white?text=Open+Air+Cinema",
+    organizerId: 1,
+    categoryId: 1,
+  },
+  {
+    id: 13,
+    title: "Книжковий клуб",
+    eventDate: "2026-10-05T18:00:00.000Z",
+    location: "Донецьк",
+    bannerPhotoUrl: "https://placehold.co/400x250/brown/white?text=Book+Club",
+    organizerId: 1,
+    categoryId: 1,
+  },
+  {
+    id: 14,
+    title: "New Year Party",
+    eventDate: "2026-12-31T22:00:00.000Z",
+    location: "Чернівці",
+    bannerPhotoUrl: "https://placehold.co/400x250/gold/white?text=NY+Party",
+    organizerId: 1,
     categoryId: 1,
   },
 ];
@@ -245,7 +357,7 @@ export async function getUserProfile(userId, token) {
     return toCamelCase(data);
   } catch (error) {
     console.warn("getUserProfile: Використовуються тестові дані.", error);
-    return {...MOCK_PROFILE,userId}
+    return { ...MOCK_PROFILE, userId };
   }
 }
 export async function getUserProfileSummary(userId, token) {
@@ -316,33 +428,38 @@ export async function getEventById(eventId, token) {
 }
 export async function getEventsByOrganizer(organizerId, token) {
   try {
-    const response = await fetch(`${API_BASE_URL}/v1/events?organizerId=${organizerId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        ...(token && { Authorization: `Bearer ${token}` }),
+    const response = await fetch(
+      `${API_BASE_URL}/v1/events?organizerId=${organizerId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          ...(token && { Authorization: `Bearer ${token}` }),
+        },
       },
-    });
+    );
 
     if (!response.ok) throw new Error("Failed to fetch organizer events");
 
     const data = await response.json();
-    console.log(data)
-    return toCamelCase(data); 
-
+    console.log(data);
+    return toCamelCase(data);
   } catch (error) {
     console.error("Помилка при отриманні івентів організатора:", error);
-    return []; 
+    return [];
   }
 }
 export const registerForEvent = async (eventId, token) => {
-  const response = await fetch(`${API_BASE_URL}/v1/events/${eventId}/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    }
-  });
+  const response = await fetch(
+    `${API_BASE_URL}/v1/events/${eventId}/register`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  );
 
   if (!response.ok) {
     const errorData = await response.json();
@@ -351,10 +468,13 @@ export const registerForEvent = async (eventId, token) => {
   return await response.json();
 };
 export const unregisterFromEvent = async (eventId, token) => {
-  const response = await fetch(`${API_BASE_URL}/v1/events/${eventId}/register`, { 
-    method: "DELETE",
-    headers: { "Authorization": `Bearer ${token}` }
-  });
+  const response = await fetch(
+    `${API_BASE_URL}/v1/events/${eventId}/register`,
+    {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}` },
+    },
+  );
   if (!response.ok) throw new Error("Не вдалося скасувати реєстрацію");
   return true;
 };
@@ -408,27 +528,55 @@ export async function changeParticipantStatus(eventId, userId, status, token) {
   }
 }
 
-export async function getEventsArchive(userId,token, type){
-  try{
-    let url= `${API_BASE_URL}/v1/events/archive?userId=${userId}`
-    if (type){
-      url+= `&type=${type}`
-    }
-    const response = await fetch(url,
-     { method: "GET",
+export async function getCreatedEvents(userId, token) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/v1/events/user/${userId}`, {
+      method: "GET",
       headers: {
-        "Content-Type" : "application/json",
-        ...(token&&{"AUthorization": `Bearer ${token}`})
-      }
-     }
-    )
-    if (!response.ok){
-      throw("Couldn't fetch data")
+        "Content-Type": "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
+      },
+    });
+    if (!response.ok) throw new Error("Failed to fetch created events");
+
+    const data = await response.json();
+    return toCamelCase(data);
+  } catch (error) {
+    console.warn("getCreatedEvents: Використовуються тестові дані.", error);
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    const myEvents = MOCK_EVENTS_DB.filter(
+      (e) => e.organizerId === Number(userId),
+    );
+
+    if (myEvents.length === 0) {
+      return MOCK_EVENTS_DB.filter((e) => e.organizerId === 1);
     }
-    const data = await response.json()
-    return toCamelCase(data)
-  }catch(err){
-    console.error("Couldn't fetch", err)
-    return []
+
+    return myEvents;
+  }
+}
+export async function getEventsArchive(userId, token, type) {
+  try {
+    let url = `${API_BASE_URL}/v1/events/archive?userId=${userId}`;
+    if (type) {
+      url += `&type=${type}`;
+    }
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token && { AUthorization: `Bearer ${token}` }),
+      },
+    });
+    if (!response.ok) {
+      throw "Couldn't fetch data";
+    }
+    const data = await response.json();
+    return toCamelCase(data);
+  } catch (err) {
+    console.error("Couldn't fetch", err);
+    return [];
   }
 }

@@ -10,13 +10,13 @@ export default function EventCard({
   title,
   date,
   location,
-  organizerId
+  organizerId,
 }) {
-  const {user}=useAuth()
-  const isOrganizer = Number(user?.id) === Number(organizerId)
+  const { user } = useAuth();
+  const isOrganizer = Number(user?.id) === Number(organizerId);
   const isPast = new Date(date) < new Date();
-  const detailsPath = isOrganizer 
-    ? `/my-events/${id}/dashboard` 
+  const detailsPath = isOrganizer
+    ? `/my-events/${id}/dashboard`
     : `/events/${id}/dashboard`;
   return (
     <div className="event-card-container">
