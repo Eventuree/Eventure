@@ -11,6 +11,7 @@ import {
 import { useAuth } from "../../context/AuthContext";
 import { useCategories } from "../../context/CategoryContext";
 import EventCategory from "../../components/EventCategory/EventCategory";
+import RatingModal from "../../components/RatingModal/RatingModal";
 import styles from "./EventRegister.module.css";
 
 export default function EventRegister() {
@@ -28,6 +29,7 @@ export default function EventRegister() {
   const [isRegistered, setIsRegistered] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [cancelModal, setCancelModal] = useState(false);
+  const [rateModal, setRateModal] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -80,6 +82,7 @@ export default function EventRegister() {
       isMounted = false;
     };
   }, [eventId, userId]);
+
 
   const canRegister = (user, event) => {
     if (!user || !event) {
@@ -150,6 +153,7 @@ export default function EventRegister() {
     : null;
 
   const isPast = new Date(event.eventDate) < new Date();
+
 
   return (
     <div className={styles.container}>
@@ -229,7 +233,7 @@ export default function EventRegister() {
               <button
                 className={`${styles.buttonLink} ${isRegistered ? styles.unregisterBtn : styles.buttonLink} ${isSubmitting ? styles.submittingBtn : ""}`}
                 onClick={handleToggleRegistration}
-                disabled={isSubmitting} 
+                disabled={isSubmitting}
               >
                 {isSubmitting
                   ? "Зачекайте..."
@@ -286,6 +290,15 @@ export default function EventRegister() {
                   </button>
                 </div>
               </div>
+            )}
+            {isPast && rateModal && (
+              <RatingModal
+                eventId={event.id}
+                userId={userId}
+                eventTitle={event.title}
+                onClose={() => setRateModal(false)}
+                className={styles.modalOverlay}
+              />
             )}
 
             <div

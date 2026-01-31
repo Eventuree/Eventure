@@ -386,6 +386,47 @@ export function makeServer() {
           status: "PENDING",
         };
       });
+      // В межах функції routes() твого Mirage сервера
+
+      this.post("/events/:id/rate", (schema, request) => {
+  try {
+    const eventId = request.params.id;
+    const attrs = JSON.parse(request.requestBody);
+
+    // 1. Шукаємо івент через .db, щоб уникнути помилок ORM
+    const event = schema.db.events.find(eventId);
+    
+    if (!event) {
+      console.error(`Mirage: Івент з ID ${eventId} не знайдено в БД`);
+      return new Response(404, {}, { error: "Івент не знайдено" });
+    }
+
+    // 2. Перевіряємо, чи існує таблиця feedbacks (ініціалізуємо її, якщо порожня)
+    if (!schema.db.feedbacks) {
+       schema.db.createCollection('feedbacks');
+    }
+
+    // 3. Зберігаємо відгук
+    const newFeedback = schema.db.feedbacks.insert({
+      eventId: eventId,
+      userId: attrs.userId,
+      score: attrs.rating,
+      comment: attrs.comment,
+      date: new Date().toISOString(),
+    });
+
+    console.log("Mirage: Успішно збережено відгук:", newFeedback);
+
+    return new Response(201, {}, { 
+      message: "Оцінка збережена", 
+      feedback: newFeedback 
+    });
+
+  } catch (error) {
+    console.error("Mirage Error (500):", error);
+    return new Response(500, {}, { error: error.message });
+  }
+});
 
       this.delete("/events/:eventId/register", (schema, request) => {
         return new Response(204);
