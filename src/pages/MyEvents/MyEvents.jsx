@@ -46,10 +46,11 @@ export default function MyEvents() {
             <div key={event.id}>
               <EventCard
                 id={event.id}
-                imageUrl={event.imageUrl || event.bannerPhotoUrl}
+                bannerPhotoUrl={event.bannerPhotoUrl}
                 title={event.title}
                 date={event.eventDate}
                 location={event.location}
+                organizerId={event.organizerId}
               />
             </div>
           ))}
