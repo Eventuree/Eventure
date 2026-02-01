@@ -18,6 +18,7 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage/ForgotPasswordPage.js
 import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage.jsx";
 import EventDashboard from "./pages/EventDashboard/EventDashboard.jsx";
 import EventRegister from "./pages/EventRegister/EventRegister.jsx";
+import MyEvents from "./pages/MyEvents/MyEvents.jsx";
 import EventsArchive from "./pages/EventsArchive/EventsArchive.jsx";
 
 function App() {
@@ -76,7 +77,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-             <Route
+            <Route
               path="/archived"
               element={
                 <PrivateRoute>
@@ -102,6 +103,7 @@ function App() {
             />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/reset-password" element={<ResetPasswordPage />} />
+
             <Route
               path="/my-events/:eventId/dashboard"
               element={
@@ -110,7 +112,14 @@ function App() {
                 </PrivateRoute>
               }
             />
-            
+            <Route
+              path="/my-events"
+              element={
+                <PrivateRoute>
+                  <MyEvents />
+                </PrivateRoute>
+              }
+            />
 
             {/* <Route path="/my-events" element={<MyEvents />} />
         <Route path="/registered" element={<Registered />} />
